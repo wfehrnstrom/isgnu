@@ -5,6 +5,9 @@ isgnu works internally by pinging one of two possible gnu project formats on the
 gnu site: gnu_url/project_name or gnu_url/project_name.README. isgnu does not
 cache, and isgnu does not have any options. 
 
+isgnu pings using one of two commands, depending on which is installed on your
+system. First it looks for curl, and if it doesn't find this it uses wget.
+
 The format of the command is 'isgnu PROG_NAME' where PROG_NAME is the name of the
 program being checked if gnu.
 

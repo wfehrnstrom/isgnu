@@ -1,9 +1,10 @@
 prog=$1
 quiet=0
 prefix='https://ftp.gnu.org/gnu/'
-curl --location --output /dev/null --silent --head --fail "$prefix$prog"
+curl_or_wget=$(if hash curl 2>/dev/null; then echo "curl --location --output /dev/null --silent --head --fail"; elif hash wget 2>/dev/null; then echo "wget --spider"; fi);
+$($curl_or_wget "$prefix$prog" 2>/dev/null)
 type1=$?
-curl --location --output /dev/null --silent --head --fail "$prefix$prog.README"
+$($curl_or_wget "$prefix$prog.README" 2>/dev/null)
 type2=$?
 [ $type1 -eq 0 -o $type2 -eq 0 ] && [ $quiet -eq 0 ] && echo "yes" && exit 0
 [ $quiet -eq 0 ] && echo "no" && exit 1
