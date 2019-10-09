@@ -1,0 +1,6 @@
+To use isgnu, run the command 'chmod +x isgnu' from within this folder once
+you've cloned it.
+
+isgnu works internally by pinging one of two possible gnu project formats on the
+gnu site: gnu_url/project_name or gnu_url/project_name.README. isgnu does not
+cache, and isgnu does not have any options. Have fun!
